@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use Illuminate\Http\Request;
+
+
 class AdminPostsController extends Controller
 {
     public function index()
@@ -11,9 +14,9 @@ class AdminPostsController extends Controller
         return view('admin.posts.index',$data);
     }
 
-    public  function  store()
+    public  function  store(Request $request)
     {
-
+        Post::create($request->all());
     }
 
     public function create()
